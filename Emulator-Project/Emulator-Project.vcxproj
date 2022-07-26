@@ -139,12 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="Creator.cpp" />
     <ClCompile Include="Emulator-Project.cpp" />
+    <ClCompile Include="Order.cpp" />
     <ClCompile Include="StorageUnit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Creator.h" />
+    <ClInclude Include="Order.h" />
     <ClInclude Include="StorageUnit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
