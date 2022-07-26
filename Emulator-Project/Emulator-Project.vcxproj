@@ -141,15 +141,25 @@
   <ItemGroup>
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Creator.cpp" />
+    <ClCompile Include="DataLocatoer.cpp" />
+    <ClCompile Include="DeleteCommand.cpp" />
     <ClCompile Include="Emulator-Project.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="ReadCommand.cpp" />
+    <ClCompile Include="Response.cpp" />
     <ClCompile Include="StorageUnit.cpp" />
+    <ClCompile Include="WriteCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command.h" />
     <ClInclude Include="Creator.h" />
+    <ClInclude Include="DataLocatoer.h" />
+    <ClInclude Include="DeleteCommand.h" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="ReadCommand.h" />
+    <ClInclude Include="Response.h" />
     <ClInclude Include="StorageUnit.h" />
+    <ClInclude Include="WriteCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

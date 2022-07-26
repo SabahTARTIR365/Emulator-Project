@@ -21,10 +21,7 @@ public:
 	uint8_t getAddress();
 
 
-	//uint8_t* Value;// new uint8_t[Length];
 
-	/*void setValue(uint8_t value);
-	uint8_t* getValue();*/
 
 
 };
