@@ -1,15 +1,21 @@
 #pragma once
 #include "Order.h"
-class Command :
-    public Order
+#include "DataLocatoer.h"
+class Command :public Order
 {
 private:
     uint8_t Priority;
+   DataLocatoer _DataLocatoer;
+
 
  public:
 	 Command();
+	 ~Command();
 	 Command(Command & command);
+	 Command(uint8_t _Priority,DataLocatoer dataLocatoer);
 	 void setPriority(uint8_t priority);
 	 uint8_t getPriority();
+	 void  SeteDataLocatoer(DataLocatoer  dataLocatoer);
+	 DataLocatoer getDataLocatoer();
 };
 
