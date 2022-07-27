@@ -2,6 +2,8 @@
 
 Order::Order()
 {
+	this->Id = 0x00;
+	this->Opcode = 0x00;
 }
 
 Order::Order(Order& order)

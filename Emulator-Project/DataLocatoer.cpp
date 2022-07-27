@@ -2,6 +2,8 @@
 
 DataLocatoer::DataLocatoer()
 {
+	this->Length = 0x00;
+	this->Address = 0x00;
 }
 
 DataLocatoer::DataLocatoer(uint8_t Length, uint8_t Address)

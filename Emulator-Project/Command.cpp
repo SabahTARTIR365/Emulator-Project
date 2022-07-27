@@ -2,7 +2,8 @@
 
 Command::Command()
 {
-
+	this->Priority = 0x00;
+	//this->_DataLocatoer
 }
 
 Command::~Command()

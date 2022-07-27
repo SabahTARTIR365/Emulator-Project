@@ -1,12 +1,30 @@
 #include "WriteCommand.h"
 
-uint8_t* WriteCommand::Data;
+//uint8_t* WriteCommand::Data;
+
+WriteCommand::WriteCommand()
+{
+}
+
+WriteCommand::~WriteCommand()
+{
+}
+
+WriteCommand::WriteCommand(uint8_t* Data)
+{
+}
 
 void WriteCommand::setData(uint8_t* value)
 {
-	//this->getDataLocatoer().getLength();
+	int length =this->getDataLocatoer().getLength();
 	
-	//Data=new uint8_t[];
+	this->Data=new uint8_t[length];
+	this->Data = value;
 	
-	//Data= new uint8_t[this.];
+
+}
+
+uint8_t* WriteCommand::getData()
+{
+	return this->Data;
 }
