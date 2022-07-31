@@ -4,18 +4,22 @@
 #include "WriteCommand.h"
 Command* Factory::createCommand(char* type)
 {
+	cout << "\n inside factory type =" << *type;
 
-	if (strcmp(type, "R") == 0) //ReadCommand
+	
+	if (*type == 'R') //ReadCommand
 	{
 		return new ReadCommand();
 	}
-	else if (strcmp(type, "W") == 0) //WriteCommand
+	else if (*type == 'W') //WriteCommand
 	{
-		return new WriteCommand();
+		
+		return new WriteCommand(); 
 	}
-	else if (strcmp(type, "D") == 0)//DeleteCommand
+	else if (*type == 'D')//DeleteCommand
 	{
 		return new DeleteCommand();
 	}
+	//else  cout << "unknown Command";
 	return nullptr;
 }

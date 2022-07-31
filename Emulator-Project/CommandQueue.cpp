@@ -5,7 +5,7 @@ using namespace std;
  std::priority_queue<Command>  CommandQueue:: PriorityQueue;
 void CommandQueue::Add(Command command)
 {
-
+	cout << "inside add";
 	this->PriorityQueue.push(command);
 }
 

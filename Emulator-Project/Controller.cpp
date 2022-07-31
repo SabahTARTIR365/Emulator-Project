@@ -25,7 +25,8 @@ void Controller::addCommand(uint8_t Array2D[][3])
 	char* ptrToType = const_cast<char*> (&type);
 	cout << "type =" << *ptrToType;
 	Factory factory;
-	//Command* command = factory.createCommand(ptrToType);
+	Command *command = factory.createCommand(ptrToType);
+	this->commandQueue.Add(*command);
 
 
 }
