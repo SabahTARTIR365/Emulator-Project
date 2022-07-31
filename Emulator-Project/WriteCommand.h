@@ -3,15 +3,13 @@
 class WriteCommand :public Command
 {
 private:
-	 uint8_t* Data;// new uint8_t[Length];
+	
 public:
 	WriteCommand();
+	WriteCommand(WriteCommand & writeCommand);
    ~WriteCommand();
-    WriteCommand(uint8_t* Data);
+    WriteCommand(uint8_t Id, uint8_t Opcode, uint8_t Priority,Data _Data);
 
-void setData(uint8_t* value);
-uint8_t* getData();
-//----------here ------------
 
 };
 

@@ -1,30 +1,24 @@
 #include "WriteCommand.h"
 
-//uint8_t* WriteCommand::Data;
 
 WriteCommand::WriteCommand()
 {
 }
 
+WriteCommand::WriteCommand(WriteCommand& writeCommand)
+{
+	//this->Data = writeCommand.Data;
+}
 WriteCommand::~WriteCommand()
 {
+//	delete this->Data;
 }
 
-WriteCommand::WriteCommand(uint8_t* Data)
-{
+WriteCommand::WriteCommand(uint8_t Id, uint8_t Opcode, uint8_t Priority, Data _Data)
+{  
+	this->setId(Id);
+	this->setOpcode(Opcode);
+	this->setPriority(Priority);
+	this->SeteData(_Data);
 }
 
-void WriteCommand::setData(uint8_t* value)
-{
-	int length =this->getDataLocatoer().getLength();
-	
-	this->Data=new uint8_t[length];
-	this->Data = value;
-	
-
-}
-
-uint8_t* WriteCommand::getData()
-{
-	return this->Data;
-}

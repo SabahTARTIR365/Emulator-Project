@@ -3,10 +3,10 @@
 #include <queue>
 
 
-class StorageUnit
+class CommandQueue
 {
 private:
- std::priority_queue<Command, vector<Command>, std::less<Command>> PriorityQueue;// less give from 1->0
+ static std::priority_queue<Command> PriorityQueue;// less give from 1->0
 public:
 
    
@@ -15,7 +15,7 @@ public:
     void Remove(uint8_t Id);
     void Abort();
     bool isExist(uint8_t Id);
-    void swap(priority_queue<Command, vector<Command>, std::less<Command>> SwapedQueue);
+    void swap(priority_queue<Command> SwapedQueue);
     void deleteElementAt(uint8_t Id);
 
 
