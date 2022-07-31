@@ -2,7 +2,11 @@
 using namespace std;
 #include"Command.h"
 #include <queue>
+#include "Response.h"
  std::priority_queue<Command>  CommandQueue:: PriorityQueue;
+ bool CommandQueue::isExcute = true;
+ Memory CommandQueue::memory;
+
 void CommandQueue::Add(Command command)
 {
 	cout << "inside add";
@@ -11,13 +15,45 @@ void CommandQueue::Add(Command command)
 
 void CommandQueue::Excute()
 {
+	Command CurrentCommand;
+	Response CurrentResponse;
+	while (isExcute)
+	{
+		while (!PriorityQueue.empty())
+		{
+
+			CurrentCommand = PriorityQueue.top();
+			CurrentResponse.getCommand() = CurrentCommand;
+			CurrentResponse.getCommand().setOpcode(CurrentCommand.getOpcode());
+			CurrentResponse.SetStatus(Succeeded);
+			//uint8_t key = CurrentCommand.StoredData.Address;
+			if (CurrentCommand.getOpcode() == 'R')
+			  { 
+				cout << "in execute read case ";
+				uint8_t* wantedData= memory.getData(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
+				CurrentResponse.getCommand().getData().setValue(wantedData);
+			}
+			else if (CurrentCommand.getOpcode() == 'W')
+			{
+				memory.add(CurrentCommand.getData());
+				
+			}
+			else if (CurrentCommand.getOpcode() == 'D')
+			{
+				memory.erase(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
+			}
+			PriorityQueue.pop();
+
+		}
+		isExcute = false;
+
+	}
+
 
 }
 
 void CommandQueue::Remove(uint8_t Id)
 {
-
-
 
 		if (this->isExist(Id))
 		{

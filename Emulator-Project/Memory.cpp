@@ -33,3 +33,14 @@ uint8_t* Memory::getData(uint8_t Id, uint8_t Length)
 	}
 	return  wantedData;
 }
+
+void Memory::erase(uint8_t Id, uint8_t Length)
+{
+	int i = (int)Id;
+	
+	for (; i < (int)Length; i++)
+	{
+	 this->DataArray[i]=NULL;
+	}
+
+}
