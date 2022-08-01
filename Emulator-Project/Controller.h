@@ -15,7 +15,8 @@ public:
 	static Controller* GetInstance();
 
 	void addCommand(uint8_t Array2D[][3]);
-	
+	void excuteCommands();
+
 	
 };
 

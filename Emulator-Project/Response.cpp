@@ -1,21 +1,35 @@
 #include "Response.h"
 
-void Response::setId(uint8_t id)
+Response::Response()
 {
-	this->Id = id;
 }
 
-uint8_t Response::getId()
+Response::Response(const Response& response)
 {
-	return this->Id;
+	this->command = response.command;
+	this->_STatus = response._STatus;
 }
 
-void Response::setOpcode(uint8_t _Opcode)
+void Response::SetStatus(Status status)
 {
-	this->Opcode = _Opcode;
+	this->_STatus = status;
 }
 
-uint8_t Response::getOpcode()
+Status Response::getStatus()
 {
-	return this->Opcode;
+	return this->_STatus;
 }
+
+void Response::setCommand(Command command)
+{
+	this->command = command;
+}
+
+Command Response::getCommand()
+{
+	return this->command;
+}
+
+
+
+

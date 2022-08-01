@@ -13,7 +13,7 @@ public:
 
 	Data();
 	Data(uint8_t Length, uint8_t Address, uint8_t* Value);
-	Data(Data & data);
+	Data(const Data & data);
 	~Data();
 
 	void setLength(uint8_t length);

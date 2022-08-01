@@ -14,7 +14,7 @@ Data::Data(uint8_t Length, uint8_t Address, uint8_t* Value)
 	this->Value = Value;
 }
 
-Data::Data(Data& data)
+Data::Data(const Data& data)
 {
 	this->Address = data.Address;
 	this->Length = data.Length;

@@ -30,3 +30,8 @@ void Controller::addCommand(uint8_t Array2D[][3])
 
 
 }
+
+void Controller::excuteCommands()
+{
+	this->commandQueue.Excute();
+}

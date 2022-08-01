@@ -1,11 +1,11 @@
 #include "CommandQueue.h"
-using namespace std;
 #include"Command.h"
 #include <queue>
 #include "Response.h"
+using namespace std;
  std::priority_queue<Command>  CommandQueue:: PriorityQueue;
  bool CommandQueue::isExcute = true;
- Memory CommandQueue::memory;
+ //Memory* CommandQueue::memory=Memory::GetInstance();
 
 void CommandQueue::Add(Command command)
 {
@@ -26,23 +26,25 @@ void CommandQueue::Excute()
 			CurrentResponse.getCommand() = CurrentCommand;
 			CurrentResponse.getCommand().setOpcode(CurrentCommand.getOpcode());
 			CurrentResponse.SetStatus(Succeeded);
-			//uint8_t key = CurrentCommand.StoredData.Address;
+
 			if (CurrentCommand.getOpcode() == 'R')
 			  { 
 				cout << "in execute read case ";
-				uint8_t* wantedData= memory.getData(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
+				uint8_t* wantedData= memory->getData(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
 				CurrentResponse.getCommand().getData().setValue(wantedData);
 			}
 			else if (CurrentCommand.getOpcode() == 'W')
 			{
-				memory.add(CurrentCommand.getData());
+				cout << "in execute wrtie case----- ";
+				memory->add(CurrentCommand.getData());
 				
 			}
 			else if (CurrentCommand.getOpcode() == 'D')
 			{
-				memory.erase(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
+				memory->erase(CurrentCommand.getData().getAddress(), CurrentCommand.getData().getLength());
 			}
 			PriorityQueue.pop();
+			this->printResponse(CurrentResponse);
 
 		}
 		isExcute = false;
@@ -117,3 +119,20 @@ void CommandQueue::deleteElementAt(uint8_t Id)
 }
 
 
+
+
+void CommandQueue::printResponse(Response response)
+{
+	cout << "\n Command Id :" <<(int) response.getCommand().getId() << "  ";
+	cout << "Command type (response " << (char)response.getCommand().getOpcode() << ") ";
+	cout << "Command Priority (response " << (bool)response.getCommand().getPriority() << ") \n";
+	if (response.getStatus() == Succeeded) cout << "Status Succeeded ";
+	else cout << "Status Failed \n";
+
+	if (response.getCommand().getOpcode() == 'W') {
+		cout << "hiiiiiiiiiiiiiiiiiiii";
+	}
+
+
+	//cout << response;
+}
